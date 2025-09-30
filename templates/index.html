@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>🌿 Plant Disease Detection Using Vision Models</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <div class="form-group">
+                <label for="plantType">Select Plant Type:</label>
+                <select id="plantType">
+                    <option value="">--Select Plant--</option>
+                    <option value="Tomato">Tomato</option>
+                    <option value="Potato">Potato</option>
+                    <option value="Corn">Corn</option>
+                    <option value="capcicum">Capcicum</option>
+                    <option value="cucumber">Cucumber</option>
+                </select>
+                <label for="videoUpload">Upload Video:</label>
+                <input type="file" id="videoUpload" accept="video/*">
+                <button class="c-button c-button--gooey" onclick="uploadVideo()">
+                    Upload & Detect
+                    <div class="c-button__blobs">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </button>
+            </div>
+            <div id="spinner" style="display: none;">Processing...</div>
+        </div>
+        <div class="card">
+            <div class="video-container">
+                <div>
+                    <h2>Input Video</h2>
+                    <video id="videoPreview" width="320" height="565" controls>
+                        <source id="videoPreviewSource" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div>
+                    <h2>Processed Video</h2>
+                    <video id="processedVideo" width="320" height="565" controls autoplay>
+                        <source id="processedVideoSource" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Detections</h2>
+            <pre id="detectionConsole"></pre>
+        </div>
+    </div>
+    <footer>
+        <p>🌱 Helping plants stay healthy! | Powered by AI Vision Models</p>
+    </footer>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
+                <feBlend in="SourceGraphic" in2="goo"></feBlend>
+            </filter>
+        </defs>
+    </svg>
+    <script src="/static/script.js"></script>
+</body>
+</html>
