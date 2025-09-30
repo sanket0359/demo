@@ -1,0 +1,369 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #E0F2E9; /* Light green background */
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+    background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); /* Subtle leaf pattern */
+    background-size: 200px;
+    text-align: center; /* Center all text by default */
+}
+
+/* Center the content with a max-width for larger screens */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header styling */
+header {
+    background: linear-gradient(135deg, #4CAF50, #E0F2E9);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #45a049;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(135deg, #4CAF50, #E0F2E9);
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    border-top: 3px solid #45a049;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+footer p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Section headings */
+h2 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    position: relative; /* Ensure h2 is above blob background */
+    z-index: 3;
+    text-align: center; /* Ensure headings are centered */
+}
+
+/* Card styling with glassmorphism effect (default for form and detection sections) */
+.card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+/* Specific styling for the video section card */
+.card:has(.video-container) {
+    position: relative;
+    width: 100%; /* Full width to fit videos */
+    min-height: 600px; /* Ensure enough space for videos */
+    border-radius: 15px;
+    z-index: 1111;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+.bg {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    z-index: 2;
+    background: rgba(255, 255, 255, .95);
+    backdrop-filter: blur(24px);
+    border-radius: 10px;
+    overflow: hidden;
+    outline: 2px solid white;
+}
+
+.blob {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 300px; /* Larger blob to fit video section */
+    height: 300px;
+    border-radius: 50%;
+    background-color: #4CAF50; /* Use project accent green */
+    opacity: 0.7; /* Slightly less opaque for a softer glow */
+    filter: blur(12px);
+    animation: blob-bounce 5s infinite ease;
+}
+
+@keyframes blob-bounce {
+    0% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+    25% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+    50% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+    75% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+    100% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+}
+
+/* Form styling */
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center; /* Center form elements */
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    width: 100%; /* Ensure labels take full width for centering */
+}
+
+select, input[type="file"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ensure inputs take full width for consistency */
+    max-width: 300px; /* Limit width for better appearance */
+    margin: 0 auto; /* Center inputs */
+}
+
+select:focus, input[type="file"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Gooey button styling */
+.c-button {
+    color: #333;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 0.9em 1.6em;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.c-button--gooey {
+    color: #4CAF50; /* Use project accent green */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 4px solid #4CAF50;
+    border-radius: 8px; /* Rounded corners to match UI */
+    position: relative;
+    transition: all 700ms ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    width: 100%; /* Ensure button takes full width for centering */
+    max-width: 300px; /* Limit width for better appearance */
+    margin: 0 auto; /* Center the button */
+}
+
+.c-button--gooey .c-button__blobs {
+    height: 100%;
+    filter: url(#goo);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -3px;
+    right: -1px;
+    z-index: -1;
+}
+
+.c-button--gooey .c-button__blobs div {
+    background-color: #4CAF50; /* Use project accent green */
+    width: 34%;
+    height: 100%;
+    border-radius: 100%;
+    position: absolute;
+    transform: scale(1.4) translateY(125%) translateZ(0);
+    transition: all 700ms ease;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(1) {
+    left: -5%;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(2) {
+    left: 30%;
+    transition-delay: 60ms;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(3) {
+    left: 66%;
+    transition-delay: 25ms;
+}
+
+.c-button--gooey:hover {
+    color: #fff;
+}
+
+.c-button--gooey:hover .c-button__blobs div {
+    transform: scale(1.4) translateY(0) translateZ(0);
+}
+
+/* Spinner styling with animation */
+#spinner {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#spinner::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 3px solid #4CAF50;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Video section styling */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+    z-index: 3; /* Ensure videos are above blob background */
+}
+
+.video-container > div {
+    text-align: center; /* Center text inside video container divs */
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    display: block; /* Ensure videos are block elements for centering */
+    margin: 0 auto; /* Center videos horizontally */
+}
+
+/* Ensure videos maintain hover effect */
+video:hover {
+    transform: scale(1.02);
+}
+
+/* Detection console styling */
+#detectionConsole {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Keep detection console text left-aligned for readability */
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px; /* Limit width for better appearance */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: center; /* Center form elements on smaller screens */
+    }
+
+    select, input[type="file"], .c-button--gooey {
+        width: 100%;
+        font-size: 0.9rem;
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .card:has(.video-container) {
+        min-height: 900px; /* Adjust height for stacked videos on smaller screens */
+    }
+
+    .blob {
+        width: 200px; /* Smaller blob for mobile */
+        height: 200px;
+    }
+
+    .video-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    video {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}

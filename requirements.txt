@@ -1,0 +1,6 @@
+Flask
+opencv-python
+numpy
+flask-cors
+roboflow
+python-dotenv
